@@ -7,6 +7,7 @@ target 'ReferenceRepository' do
 
   # Pods for ReferenceRepository
   pod 'RxSwift'
-  pod 'RxCocoa'  
-
+  pod 'RxCocoa'
+  pod 'Instantiate'
+  pod 'InstantiateStandard'
 end
