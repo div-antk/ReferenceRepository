@@ -48,8 +48,6 @@ fi
 
 ## ライブラリの導入
 
-RxSwift、RxCocoaをインストール。
-
 ```terminal
 pod init
 ```
@@ -59,6 +57,7 @@ Podfileを編集する（ここではVimを使っているが任意）
 ```terminal
 vi Podfile
 ```
+### RxSwift、RxCocoa
 
 ```
   pod 'RxSwift'
@@ -69,3 +68,17 @@ vi Podfile
 pod install
 ```
 
+### Instantiate
+
+```
+  pod 'Instantiate'
+  pod 'InstantiateStandard'
+```
+
+```terminal
+pod install
+```
+
+導入にあたって Main.storyboard のファイル名をViewControllerと同じ名前に修正する必要がある。  
+修正方法  
+<https://qiita.com/antk/items/0f8eed4a2cf3ba4f638c>
