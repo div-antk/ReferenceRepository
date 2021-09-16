@@ -46,3 +46,26 @@ fi
 ビルドされるたびにこの設定に基づいて警告が出てくれる。  
 `swiftlint rules` で設定を確認できる。
 
+## ライブラリの導入
+
+RxSwift、RxCocoaをインストール。
+
+```terminal
+pod init
+```
+
+Podfileを編集する（ここではVimを使っているが任意）
+
+```terminal
+vi Podfile
+```
+
+```
+  pod 'RxSwift'
+  pod 'RxCocoa'
+```
+
+```terminal
+pod install
+```
+
