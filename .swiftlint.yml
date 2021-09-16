@@ -70,7 +70,7 @@ disabled_rules:
   #- unused_closure_parameter
   #- unused_control_flow_label
   #- unused_enumerated
-  #- unused_optional_binding
+  - unused_optional_binding # let _ = のOptional Bindingを使用する
   #- unused_setter_value
   #- valid_ibinspectable
   #- vertical_parameter_alignment
@@ -89,12 +89,12 @@ opt_in_rules:
   - closure_end_indentation
   - closure_spacing
   - collection_alignment
-  - conditional_returns_on_newline
+  #- conditional_returns_on_newline # guard let などの1行returnを使用するため
   - contains_over_first_not_nil
   - convenience_type
   #- discouraged_object_literal # オブジェクトリテラルを使いたいため
   - discouraged_optional_boolean
-  - discouraged_optional_collection
+  #- discouraged_optional_collection # AppDelegateで引っかかるため
   - empty_count
   - empty_string
   - empty_xctest_method
@@ -131,7 +131,7 @@ opt_in_rules:
   #- multiline_parameters_brackets # 括弧で行を増やしたくないため
   - nimble_operator
   #- no_extension_access_modifier # エクステンションにACLを設定したいことがあるため
-  - no_grouping_extension # グループ化するためにエクステンションを使わないため
+  #- no_grouping_extension # グループ化するためにエクステンションを使う
   - nslocalizedstring_key
   #- number_separator # 数字を `_` で区切りたくないため
   #- object_literal # リテラルで生成したくないこともあるため
