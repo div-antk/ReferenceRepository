@@ -76,8 +76,7 @@
 			children = (
 				3B2D2A5026F206E600420A13 /* AppDelegate.swift */,
 				3B2D2A5226F206E600420A13 /* SceneDelegate.swift */,
-				3B2D2A5426F206E600420A13 /* ViewController.swift */,
-				3B2D2A5626F206E600420A13 /* ViewController.storyboard */,
+				3B44841C26F4D6EA00B6F098 /* View */,
 				3B2D2A6F26F34DCC00420A13 /* ViewModel */,
 				3B2D2A5926F206E800420A13 /* Assets.xcassets */,
 				3B2D2A5B26F206E800420A13 /* LaunchScreen.storyboard */,
@@ -92,6 +91,15 @@
 				3B2D2A6C26F34DC500420A13 /* ViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		3B44841C26F4D6EA00B6F098 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3B2D2A5426F206E600420A13 /* ViewController.swift */,
+				3B2D2A5626F206E600420A13 /* ViewController.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		B20FCA7B60257FBEDEA3E8F3 /* Frameworks */ = {
