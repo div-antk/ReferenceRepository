@@ -6,12 +6,14 @@
 //
 
 import UIKit
+import Instantiate
+import InstantiateStandard
 
-class ItemCollectionViewCell: UICollectionViewCell {
+class ItemCollectionViewCell: UICollectionViewCell, Reusable {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var tagLabel: UILabel!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
