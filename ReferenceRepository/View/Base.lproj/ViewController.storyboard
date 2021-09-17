@@ -54,6 +54,10 @@
                             <constraint firstItem="cGU-dv-FjU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="zGX-0b-reO"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="utG-6S-Wbl" id="4wR-NW-vB6"/>
+                        <outlet property="searchBar" destination="cGU-dv-FjU" id="AI7-wX-c0J"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
