@@ -17,8 +17,11 @@ class ViewController: UIViewController, StoryboardInstantiatable {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // 領域外タップでキーボードを閉じる
+        setDismissKeyboard()
+
         searchBar.delegate = self
-        
+
         collectionView.delegate = self
         collectionView.dataSource = self
 
