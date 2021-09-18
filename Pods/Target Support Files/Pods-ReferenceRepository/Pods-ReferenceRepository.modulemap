@@ -1,6 +1,0 @@
-framework module Pods_ReferenceRepository {
-  umbrella header "Pods-ReferenceRepository-umbrella.h"
-
-  export *
-  module * { export * }
-}
