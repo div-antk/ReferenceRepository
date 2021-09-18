@@ -17,12 +17,24 @@ class ViewController: UIViewController, StoryboardInstantiatable {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // 領域外タップでキーボードを閉じる
+        setDismissKeyboard()
+
+        searchBar.delegate = self
+
         collectionView.delegate = self
         collectionView.dataSource = self
 
         collectionView.register(UINib(nibName: ItemCollectionViewCell.reusableIdentifier, bundle: nil), forCellWithReuseIdentifier: ItemCollectionViewCell.reusableIdentifier)
     }
 
+}
+
+extension ViewController: UISearchBarDelegate {
+    // 検索ボタンを押したらキーボードを閉じる
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
+    }
 }
 
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
