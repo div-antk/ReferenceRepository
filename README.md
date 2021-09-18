@@ -1,5 +1,19 @@
 # リファレンスリポジトリ
 
+## gitignoreを記入
+
+Vimで書く場合。
+
+```
+vi .gitignore
+```
+
+ファイルを作成してIDEで書きたい場合。
+
+```
+touch .gitignore
+```
+
 ## SwiftLint導入
 
 導入のためにMintをインストール。
@@ -80,5 +94,6 @@ pod install
 ```
 
 導入にあたって Main.storyboard のファイル名をViewControllerと同じ名前に修正する必要がある。  
-修正方法  
+
+**修正方法**  
 <https://qiita.com/antk/items/0f8eed4a2cf3ba4f638c>
