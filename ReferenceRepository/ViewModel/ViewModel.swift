@@ -8,6 +8,7 @@
 import Foundation
 import RxSwift
 import RxCocoa
+import Alamofire
 
 // プロトコルを適用したクラスや構造体は、プロトコルに定義されているメソッド、プロパティを必ず実装しなければならない
 protocol ViewModelInputs {
@@ -27,6 +28,7 @@ protocol ViewModelType {
 class ViewModel: ViewModelInputs, ViewModelOutputs {
 
     // MARK: - input
+    var articles = [Article]()
 
     // MARK: - output
 
@@ -37,6 +39,24 @@ class ViewModel: ViewModelInputs, ViewModelOutputs {
     // classのプロパティの初期値を設定する
     // このクラスのインスタンスを生成する際に自動で呼び出される
     init() {
+
+        // すべての記事を取得
+        func getArticles() {
+            AF.request("https://qiita.com/api/v2/items").responseJSON { response in
+                switch response.result {
+                case .success:
+                    do {
+                        let decoder = JSONDecoder()
+                        guard let data = response.data else { return }
+                        self.articles = try decoder.decode([Article].self, from: data)
+                    } catch {
+                        print("デコードに失敗")
+                    }
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        }
 
     }
 
