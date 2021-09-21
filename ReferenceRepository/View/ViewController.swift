@@ -14,8 +14,12 @@ class ViewController: UIViewController, StoryboardInstantiatable {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var collectionView: UICollectionView!
 
+    private var viewModel: ViewModel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        viewModel = ViewModel()
 
         // 領域外タップでキーボードを閉じる
         setDismissKeyboard()
@@ -25,6 +29,7 @@ class ViewController: UIViewController, StoryboardInstantiatable {
         collectionView.delegate = self
         collectionView.dataSource = self
 
+        // カスタムセルを登録
         collectionView.register(UINib(nibName: ItemCollectionViewCell.reusableIdentifier, bundle: nil), forCellWithReuseIdentifier: ItemCollectionViewCell.reusableIdentifier)
     }
 
