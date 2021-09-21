@@ -11,13 +11,15 @@ import RxCocoa
 import Alamofire
 
 // プロトコルを適用したクラスや構造体は、プロトコルに定義されているメソッド、プロパティを必ず実装しなければならない
+
+// VCから受ける
 protocol ViewModelInputs {
     // getは読み込み専用プロパティを意味する
-
 }
 
+// VCに送る
 protocol ViewModelOutputs {
-
+    var articles: Observable<[Article]> { get }
 }
 
 protocol ViewModelType {
@@ -28,9 +30,9 @@ protocol ViewModelType {
 class ViewModel: ViewModelInputs, ViewModelOutputs {
 
     // MARK: - input
-    var articles = [Article]()
 
     // MARK: - output
+    var articles: Observable<[Article]>
 
     // MARK: - other
 
@@ -40,6 +42,9 @@ class ViewModel: ViewModelInputs, ViewModelOutputs {
     // このクラスのインスタンスを生成する際に自動で呼び出される
     init() {
 
+        let _articles = PublishRelay<[Article]>()
+        self.articles = _articles.asObservable()
+
         // すべての記事を取得
         func getArticles() {
             AF.request("https://qiita.com/api/v2/items").responseJSON { response in
@@ -48,7 +53,10 @@ class ViewModel: ViewModelInputs, ViewModelOutputs {
                     do {
                         let decoder = JSONDecoder()
                         guard let data = response.data else { return }
-                        self.articles = try decoder.decode([Article].self, from: data)
+
+                        // Observableに変換したい
+                        let result = try decoder.decode([Article].self, from: data)
+
                     } catch {
                         print("デコードに失敗")
                     }

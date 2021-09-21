@@ -19,6 +19,7 @@
 		3B44842126F4D77500B6F098 /* ItemCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B44841F26F4D77500B6F098 /* ItemCollectionViewCell.xib */; };
 		3BF5E55726F60CF5009EB71B /* UIViewController+DismissKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF5E55626F60CF5009EB71B /* UIViewController+DismissKeyboard.swift */; };
 		3BF5E56926F75618009EB71B /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF5E56826F75618009EB71B /* Article.swift */; };
+		3BF5E57A26F8892B009EB71B /* ArticleRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF5E57926F8892A009EB71B /* ArticleRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		3B44841F26F4D77500B6F098 /* ItemCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemCollectionViewCell.xib; sourceTree = "<group>"; };
 		3BF5E55626F60CF5009EB71B /* UIViewController+DismissKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+DismissKeyboard.swift"; sourceTree = "<group>"; };
 		3BF5E56826F75618009EB71B /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
+		3BF5E57926F8892A009EB71B /* ArticleRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleRepository.swift; sourceTree = "<group>"; };
 		483BCA609F65CB13B70B01C2 /* Pods-ReferenceRepository.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReferenceRepository.debug.xcconfig"; path = "Target Support Files/Pods-ReferenceRepository/Pods-ReferenceRepository.debug.xcconfig"; sourceTree = "<group>"; };
 		AD9A58AB90DA2E2B7967670B /* Pods-ReferenceRepository.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReferenceRepository.release.xcconfig"; path = "Target Support Files/Pods-ReferenceRepository/Pods-ReferenceRepository.release.xcconfig"; sourceTree = "<group>"; };
 		F2FD301231BF38812C4482C4 /* Pods_ReferenceRepository.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReferenceRepository.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,6 +87,7 @@
 				3B2D2A5026F206E600420A13 /* AppDelegate.swift */,
 				3B2D2A5226F206E600420A13 /* SceneDelegate.swift */,
 				3BF5E55626F60CF5009EB71B /* UIViewController+DismissKeyboard.swift */,
+				3BF5E57926F8892A009EB71B /* ArticleRepository.swift */,
 				3BF5E56726F75601009EB71B /* Entity */,
 				3B44841C26F4D6EA00B6F098 /* View */,
 				3B2D2A6F26F34DCC00420A13 /* ViewModel */,
@@ -277,6 +280,7 @@
 				3B2D2A5126F206E600420A13 /* AppDelegate.swift in Sources */,
 				3B2D2A6D26F34DC500420A13 /* ViewModel.swift in Sources */,
 				3BF5E55726F60CF5009EB71B /* UIViewController+DismissKeyboard.swift in Sources */,
+				3BF5E57A26F8892B009EB71B /* ArticleRepository.swift in Sources */,
 				3B2D2A5326F206E600420A13 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
