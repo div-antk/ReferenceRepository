@@ -28,23 +28,23 @@ protocol ViewModelType {
 }
 
 class ViewModel: ViewModelInputs, ViewModelOutputs {
-
+    
     // MARK: - input
-
+    
     // MARK: - output
     var articles: Observable<[Article]>
-
+    
     // MARK: - other
-
+    
     private let disposeBag = DisposeBag()
-
+    
     // classのプロパティの初期値を設定する
     // このクラスのインスタンスを生成する際に自動で呼び出される
     init() {
-
+        
         let _articles = PublishRelay<[Article]>()
         self.articles = _articles.asObservable()
-
+        
         // すべての記事を取得
         func getArticles() {
             AF.request("https://qiita.com/api/v2/items").responseJSON { response in
@@ -52,11 +52,11 @@ class ViewModel: ViewModelInputs, ViewModelOutputs {
                 case .success:
                     do {
                         let decoder = JSONDecoder()
-                        guard let data = response.data else { return }
-
-                        // Observableに変換したい
-                        let result = try decoder.decode([Article].self, from: data)
-
+                        if let data = response.data {
+                            // 取得した[Article]をObservable型に変換
+                            let articles = try decoder.decode([Article].self, from: data)
+                            _articles.accept(articles)
+                        }
                     } catch {
                         print("デコードに失敗")
                     }
@@ -65,9 +65,9 @@ class ViewModel: ViewModelInputs, ViewModelOutputs {
                 }
             }
         }
-
+        
     }
-
+    
 }
 
 extension ViewModel: ViewModelType {

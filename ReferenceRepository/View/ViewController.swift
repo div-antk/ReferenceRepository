@@ -8,6 +8,8 @@
 import UIKit
 import Instantiate
 import InstantiateStandard
+import RxSwift
+import RxCocoa
 
 class ViewController: UIViewController, StoryboardInstantiatable {
 
@@ -15,11 +17,12 @@ class ViewController: UIViewController, StoryboardInstantiatable {
     @IBOutlet weak var collectionView: UICollectionView!
 
     private var viewModel: ViewModel!
+    private let disposeBag = DisposeBag()
+
+    private var articles: [Article]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        viewModel = ViewModel()
 
         // 領域外タップでキーボードを閉じる
         setDismissKeyboard()
@@ -33,6 +36,15 @@ class ViewController: UIViewController, StoryboardInstantiatable {
         collectionView.register(UINib(nibName: ItemCollectionViewCell.reusableIdentifier, bundle: nil), forCellWithReuseIdentifier: ItemCollectionViewCell.reusableIdentifier)
     }
 
+    private func getArticles() {
+        viewModel = ViewModel()
+
+        viewModel.outputs.articles
+            .asObservable().subscribe { [weak self] in
+                self?.articles = $0.element
+                self?.collectionView.reloadData()
+            }.disposed(by: disposeBag)
+    }
 }
 
 extension ViewController: UISearchBarDelegate {
@@ -53,7 +65,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ItemCollectionViewCell.reusableIdentifier, for: indexPath) as? ItemCollectionViewCell else { return UICollectionViewCell() }
 
         cell.titleLabel.text = "タイトル"
-        cell.tagLabel.text = "タグです"
+        cell.tagLabel.text = articles?[indexPath.row].user.name
 
         return cell
     }
