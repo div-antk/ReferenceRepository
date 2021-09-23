@@ -41,7 +41,6 @@ class ViewModel: ViewModelInputs, ViewModelOutputs {
     // classのプロパティの初期値を設定する
     // このクラスのインスタンスを生成する際に自動で呼び出される
     init() {
-        
         let _articles = PublishRelay<[Article]>()
         self.articles = _articles.asObservable()
         
