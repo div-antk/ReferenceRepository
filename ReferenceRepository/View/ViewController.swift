@@ -34,6 +34,8 @@ class ViewController: UIViewController, StoryboardInstantiatable {
 
         // カスタムセルを登録
         collectionView.register(UINib(nibName: ItemCollectionViewCell.reusableIdentifier, bundle: nil), forCellWithReuseIdentifier: ItemCollectionViewCell.reusableIdentifier)
+
+        getArticles()
     }
 
     private func getArticles() {
