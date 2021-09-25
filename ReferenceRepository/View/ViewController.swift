@@ -14,7 +14,7 @@ import RxCocoa
 class ViewController: UIViewController, StoryboardInstantiatable {
 
     @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var tableView: UITableView!
 
     private var viewModel: ViewModel!
     private let disposeBag = DisposeBag()
@@ -29,11 +29,11 @@ class ViewController: UIViewController, StoryboardInstantiatable {
 
         searchBar.delegate = self
 
-        collectionView.delegate = self
-        collectionView.dataSource = self
+        tableView.delegate = self
+        tableView.dataSource = self
 
         // カスタムセルを登録
-        collectionView.register(UINib(nibName: ItemCollectionViewCell.reusableIdentifier, bundle: nil), forCellWithReuseIdentifier: ItemCollectionViewCell.reusableIdentifier)
+        tableView.register(UINib(nibName: ItemTableViewCell.reusableIdentifier, bundle: nil), forCellReuseIdentifier: ItemTableViewCell.reusableIdentifier)
 
         getArticles()
     }
@@ -44,7 +44,7 @@ class ViewController: UIViewController, StoryboardInstantiatable {
         viewModel.outputs.articles
             .asObservable().subscribe { [weak self] in
                 self?.articles = $0.element
-                self?.collectionView.reloadData()
+                self?.tableView.reloadData()
             }.disposed(by: disposeBag)
     }
 }
@@ -56,19 +56,33 @@ extension ViewController: UISearchBarDelegate {
     }
 }
 
-extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+extension ViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         10
     }
 
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ItemCollectionViewCell.reusableIdentifier, for: indexPath) as? ItemCollectionViewCell else { return UICollectionViewCell() }
-
-        cell.titleLabel.text = "タイトル"
-        cell.tagLabel.text = articles?[indexPath.row].user.name
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ItemTableViewCell.reusableIdentifier, for: indexPath) as? ItemTableViewCell else { return UITableViewCell() }
 
         return cell
     }
+
 }
+
+// extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+//
+//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        10
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//
+//        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ItemCollectionViewCell.reusableIdentifier, for: indexPath) as? ItemCollectionViewCell else { return UICollectionViewCell() }
+//
+//        cell.titleLabel.text = "タイトル"
+//        cell.tagLabel.text = articles?[indexPath.row].user.name
+//
+//        return cell
+//    }
+// }
