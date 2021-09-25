@@ -10,7 +10,7 @@ import Alamofire
 import RxSwift
 
 class ArticleRepository {
-    
+
     // 返り値がない場合があるためcompletionを使用する
     static func getArticles(completion: @escaping (_ : [Article]) -> Void) {
         AF.request("https://qiita.com/api/v2/items").responseJSON { response in

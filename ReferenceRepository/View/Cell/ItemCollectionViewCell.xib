@@ -54,6 +54,7 @@
             </constraints>
             <size key="customSize" width="234" height="101"/>
             <connections>
+                <outlet property="bgView" destination="ab7-Ay-Qhq" id="MiV-5c-SFm"/>
                 <outlet property="tagLabel" destination="Q9L-Gb-LWo" id="Y35-Vf-2B9"/>
                 <outlet property="titleLabel" destination="Zh5-qg-VCY" id="Siz-20-stE"/>
             </connections>
