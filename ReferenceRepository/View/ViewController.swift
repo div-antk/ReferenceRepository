@@ -35,6 +35,9 @@ class ViewController: UIViewController, StoryboardInstantiatable {
         // カスタムセルを登録
         tableView.register(UINib(nibName: ItemTableViewCell.reusableIdentifier, bundle: nil), forCellReuseIdentifier: ItemTableViewCell.reusableIdentifier)
 
+        tableView.estimatedRowHeight = 150 // 追加
+        tableView.rowHeight = UITableView.automaticDimension // 追加
+
         getArticles()
     }
 
@@ -64,6 +67,9 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ItemTableViewCell.reusableIdentifier, for: indexPath) as? ItemTableViewCell else { return UITableViewCell() }
+
+        cell.titleLabel.text = articles?[indexPath.row].title
+        cell.nameLabel.text = articles?[indexPath.row].user.name
 
         return cell
     }
