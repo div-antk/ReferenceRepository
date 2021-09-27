@@ -10,9 +10,13 @@ import Foundation
 // APIから取得したい情報をここにあらかじめ定義しておく
 struct Article: Codable {
     let title: String
+    let likes_count: Int
+    let updated_at: Date
+    let url: String
     var user: User
-
+    
     struct User: Codable {
-        var name: String
+        let name: String
+        let profile_image_url: String
     }
 }
