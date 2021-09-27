@@ -10,6 +10,7 @@ import Instantiate
 import InstantiateStandard
 import RxSwift
 import RxCocoa
+import Kingfisher
 
 class ViewController: UIViewController, StoryboardInstantiatable {
 
@@ -77,6 +78,9 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             let date = DateUtil.dateFromString(string: article.updated_at)
             // Date型に変換したupdated_atをフォーマットを指定してStringに戻す
             cell.dateLabel.text = DateUtil.stringFromDate(date: date, format: "yyyy年MM月dd日")
+
+            let imageUrl = URL(string: article.user.profile_image_url)
+            cell.userImageView.kf.setImage(with: imageUrl)
 
             cell.likesLabel.text = String(article.likes_count)
 

@@ -19,6 +19,9 @@ class ItemTableViewCell: UITableViewCell, Reusable {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+
+        userImageView.layer.cornerRadius = 12
+        userImageView.clipsToBounds = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
