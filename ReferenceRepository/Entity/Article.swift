@@ -18,6 +18,7 @@ struct Article: Codable {
     let user: User
 
     struct User: Codable {
+        let id: String
         let name: String
         let profile_image_url: String
     }
