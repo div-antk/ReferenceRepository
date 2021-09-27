@@ -11,10 +11,10 @@ import Foundation
 struct Article: Codable {
     let title: String
     let likes_count: Int
-    let updated_at: Date
+    let updated_at: String
     let url: String
-    var user: User
-    
+    let user: User
+
     struct User: Codable {
         let name: String
         let profile_image_url: String
