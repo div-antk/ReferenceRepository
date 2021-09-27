@@ -8,6 +8,8 @@
 import Foundation
 
 // APIから取得したい情報をここにあらかじめ定義しておく
+// https://qiita.com/api/v2/docs
+
 struct Article: Codable {
     let title: String
     let likes_count: Int
