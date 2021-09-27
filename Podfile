@@ -11,4 +11,5 @@ target 'ReferenceRepository' do
   pod 'Alamofire'
   pod 'Instantiate'
   pod 'InstantiateStandard'
+  pod 'Kingfisher'
 end

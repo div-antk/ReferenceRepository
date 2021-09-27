@@ -10,6 +10,7 @@ import Instantiate
 import InstantiateStandard
 import RxSwift
 import RxCocoa
+import Kingfisher
 
 class ViewController: UIViewController, StoryboardInstantiatable {
 
@@ -68,27 +69,30 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ItemTableViewCell.reusableIdentifier, for: indexPath) as? ItemTableViewCell else { return UITableViewCell() }
 
-        cell.titleLabel.text = articles?[indexPath.row].title
-        cell.nameLabel.text = articles?[indexPath.row].user.name
+        if let article = articles?[indexPath.row] {
+            cell.titleLabel.text = article.title
 
-        return cell
+            // 名前を設定してないユーザはIDを表示する
+            if article.user.name.isEmpty {
+                cell.nameLabel.text = "@\(article.user.id)"
+            } else {
+                cell.nameLabel.text = article.user.name
+            }
+
+            // Stringのupdated_atをDate型に変換する
+            let date = DateUtil.dateFromString(string: article.updated_at)
+            // Date型に変換したupdated_atをフォーマットを指定してStringに戻す
+            cell.dateLabel.text = DateUtil.stringFromDate(date: date, format: "yyyy年MM月dd日")
+
+            // プロフィール画像の設定
+            let imageUrl = URL(string: article.user.profile_image_url)
+            cell.userImageView.kf.setImage(with: imageUrl)
+
+            cell.likesLabel.text = String(article.likes_count)
+
+            return cell
+        } else {
+            return UITableViewCell()
+        }
     }
-
 }
-
-// extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-//
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        10
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//
-//        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ItemCollectionViewCell.reusableIdentifier, for: indexPath) as? ItemCollectionViewCell else { return UICollectionViewCell() }
-//
-//        cell.titleLabel.text = "タイトル"
-//        cell.tagLabel.text = articles?[indexPath.row].user.name
-//
-//        return cell
-//    }
-// }
