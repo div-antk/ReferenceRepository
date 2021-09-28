@@ -95,4 +95,13 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
     }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        // WebViewのVCにURLを渡してモーダル遷移する
+        if let url = URL(string: articles?[indexPath.row].url ?? "") {
+            let webVc = WebViewController.instantiate(with: WebViewController.Dependency(url: url))
+            self.present(webVc, animated: true, completion: nil)
+        }
+    }
 }
