@@ -12,7 +12,7 @@ import RxSwift
 class ArticleRepository {
     
     // 返り値がない場合があるためcompletionを使用する
-    static func getArticles(completion: @escaping (_ : [Article]) -> Void) {
+    static func getArticles(completion: @escaping (_ response: [Article]) -> Void) {
         AF.request("https://qiita.com/api/v2/items", method: .get).responseJSON { response in
             switch response.result {
             case .success:
@@ -32,7 +32,7 @@ class ArticleRepository {
         }
     }
      
-    static func searchArticles(searchWord: String, completion: @escaping (_ : [Article]) -> Void) {
+    static func searchArticles(searchWord: String, completion: @escaping (_ response: [Article]) -> ()) {
         AF.request("https://qiita.com/api/v2/items?page=1&query=tag%3A\(searchWord)", method: .get).responseJSON { response in
             switch response.result {
             case .success:
