@@ -15,6 +15,7 @@ import Alamofire
 // VCから受ける
 protocol ViewModelInputs {
     // getは読み込み専用プロパティを意味する
+    var searchWord: AnyObserver<String> { get }
 }
 
 // VCに送る
@@ -30,12 +31,12 @@ protocol ViewModelType {
 class ViewModel: ViewModelInputs, ViewModelOutputs {
 
     // MARK: - input
+    var searchWord: AnyObserver<String>
 
     // MARK: - output
     var articles: Observable<[Article]>
 
     // MARK: - other
-
     private let disposeBag = DisposeBag()
 
     // classのプロパティの初期値を設定する
@@ -48,9 +49,26 @@ class ViewModel: ViewModelInputs, ViewModelOutputs {
         ArticleRepository.getArticles(completion: { [weak self] response in
             _articles.accept(response)
         })
-
+       
+        let _searchWord = PublishRelay<String>()
+        self.searchWord = AnyObserver<String>() { event in
+            guard let text = event.element else { return }
+            _searchWord.accept(text)
+        }
+    
+        _searchWord
+            .debounce(RxTimeInterval.seconds(1), scheduler: MainScheduler.instance)
+            .flatMap { searchWord in
+                ArticleRepository.searchArticles(searchWord: searchWord, completion: { [weak self] response in
+                    _articles.accept(response)
+                })
+            }
+            .subscribe(onNext: { response in
+                print(response)
+//                _articles.accept(response)
+            })
+            .disposed(by: disposeBag)
     }
-
 }
 
 extension ViewModel: ViewModelType {
