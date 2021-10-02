@@ -46,7 +46,7 @@ class ViewModel: ViewModelInputs, ViewModelOutputs {
         self.articles = _articles.asObservable()
 
         // すべての記事を取得
-        ArticleRepository.getArticles(completion: { [weak self] response in
+        ArticleRepository.getArticlesAF(completion: { [weak self] response in
             _articles.accept(response)
         })
        

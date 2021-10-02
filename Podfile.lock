@@ -4,20 +4,25 @@ PODS:
   - InstantiateStandard (4.0.0):
     - Instantiate (~> 4.0)
   - Kingfisher (6.3.0)
-  - RxCocoa (6.1.0):
-    - RxRelay (= 6.1.0)
-    - RxSwift (= 6.1.0)
-  - RxRelay (6.1.0):
-    - RxSwift (= 6.1.0)
-  - RxSwift (6.1.0)
+  - Moya/Core (14.0.0):
+    - Alamofire (~> 5.0)
+  - Moya/RxSwift (14.0.0):
+    - Moya/Core
+    - RxSwift (~> 5.0)
+  - RxCocoa (5.1.1):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxRelay (5.1.1):
+    - RxSwift (~> 5)
+  - RxSwift (5.1.2)
 
 DEPENDENCIES:
   - Alamofire
   - Instantiate
   - InstantiateStandard
   - Kingfisher
+  - Moya/RxSwift
   - RxCocoa
-  - RxSwift
 
 SPEC REPOS:
   trunk:
@@ -25,6 +30,7 @@ SPEC REPOS:
     - Instantiate
     - InstantiateStandard
     - Kingfisher
+    - Moya
     - RxCocoa
     - RxRelay
     - RxSwift
@@ -34,10 +40,11 @@ SPEC CHECKSUMS:
   Instantiate: 62516e7dde448721c1f5815a9ee7e0669d034d52
   InstantiateStandard: 18ab1417ba787113350c71a5b2251f0b4448be67
   Kingfisher: 6c3df386db71d82c0817a429d2c9421a77396529
-  RxCocoa: 5c51f02d562cbd94629f6c26cf0c80fe4ab8d343
-  RxRelay: 483e1a19fad961b41f0b0c0bee506f46c1ae14fe
-  RxSwift: a834e5c538e89eca0cae86f403f4fbf0336786ce
+  Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
+  RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
+  RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
+  RxSwift: 1e2e1f9570186967f617e49128ed26ccf1bafc8e
 
-PODFILE CHECKSUM: f377fd3714e94c6caed3df08997b87c91809f346
+PODFILE CHECKSUM: 158111491ad29b50e17387dd46cd8830a6ef660b
 
 COCOAPODS: 1.10.0

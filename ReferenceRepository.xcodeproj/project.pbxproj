@@ -25,6 +25,7 @@
 		3BF5E57A26F8892B009EB71B /* ArticleRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF5E57926F8892A009EB71B /* ArticleRepository.swift */; };
 		3BF5E59C26FF619F009EB71B /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF5E59A26FF619F009EB71B /* ItemTableViewCell.swift */; };
 		3BF5E59D26FF619F009EB71B /* ItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BF5E59B26FF619F009EB71B /* ItemTableViewCell.xib */; };
+		3BFD679A2708360900C3EC68 /* QiitaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFD67992708360900C3EC68 /* QiitaAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		3BF5E57926F8892A009EB71B /* ArticleRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleRepository.swift; sourceTree = "<group>"; };
 		3BF5E59A26FF619F009EB71B /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 		3BF5E59B26FF619F009EB71B /* ItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemTableViewCell.xib; sourceTree = "<group>"; };
+		3BFD67992708360900C3EC68 /* QiitaAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QiitaAPI.swift; sourceTree = "<group>"; };
 		483BCA609F65CB13B70B01C2 /* Pods-ReferenceRepository.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReferenceRepository.debug.xcconfig"; path = "Target Support Files/Pods-ReferenceRepository/Pods-ReferenceRepository.debug.xcconfig"; sourceTree = "<group>"; };
 		AD9A58AB90DA2E2B7967670B /* Pods-ReferenceRepository.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReferenceRepository.release.xcconfig"; path = "Target Support Files/Pods-ReferenceRepository/Pods-ReferenceRepository.release.xcconfig"; sourceTree = "<group>"; };
 		F2FD301231BF38812C4482C4 /* Pods_ReferenceRepository.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReferenceRepository.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,6 +100,7 @@
 				3B2D2A5226F206E600420A13 /* SceneDelegate.swift */,
 				3BF5E55626F60CF5009EB71B /* UIViewController+DismissKeyboard.swift */,
 				3BF5E57926F8892A009EB71B /* ArticleRepository.swift */,
+				3BFD67992708360900C3EC68 /* QiitaAPI.swift */,
 				3B50C8EA2701EC0000794C17 /* Utility */,
 				3BF5E56726F75601009EB71B /* Entity */,
 				3B44841C26F4D6EA00B6F098 /* View */,
@@ -302,6 +305,7 @@
 				3BF5E56926F75618009EB71B /* Article.swift in Sources */,
 				3B99BA2927033933008109FE /* WebViewController.swift in Sources */,
 				3B50C8EC2701EC0E00794C17 /* DateUtil.swift in Sources */,
+				3BFD679A2708360900C3EC68 /* QiitaAPI.swift in Sources */,
 				3BF5E59C26FF619F009EB71B /* ItemTableViewCell.swift in Sources */,
 				3B44842026F4D77500B6F098 /* ItemCollectionViewCell.swift in Sources */,
 				3B2D2A5526F206E600420A13 /* ViewController.swift in Sources */,

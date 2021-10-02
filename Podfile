@@ -6,7 +6,7 @@ target 'ReferenceRepository' do
   use_frameworks!
 
   # Pods for ReferenceRepository
-  pod 'RxSwift'
+  pod 'Moya/RxSwift'
   pod 'RxCocoa'
   pod 'Alamofire'
   pod 'Instantiate'
