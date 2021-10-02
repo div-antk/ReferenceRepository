@@ -9,6 +9,7 @@ target 'ReferenceRepository' do
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'Alamofire'
+  pod 'Moya'
   pod 'Instantiate'
   pod 'InstantiateStandard'
   pod 'Kingfisher'
