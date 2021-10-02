@@ -9,7 +9,7 @@ import Foundation
 import Moya
 
 enum QiitaAPI {
-    case all
+    case allArticles
     case search(searchWord: String)
 }
 
@@ -23,7 +23,7 @@ extension QiitaAPI: TargetType {
     }
     
     var method: Moya.Method {
-        return Moya.Method.get
+        return .get
     }
     
     var sampleData: Data {
@@ -32,7 +32,7 @@ extension QiitaAPI: TargetType {
     
     var task: Task {
         switch self {
-        case .all:
+        case .allArticles:
             return .requestPlain
         case let .search(_: searchWord):
             return .requestParameters(parameters: ["query": searchWord], encoding: URLEncoding.queryString)
