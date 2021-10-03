@@ -45,29 +45,47 @@ class ViewModel: ViewModelInputs, ViewModelOutputs {
         let _articles = PublishRelay<[Article]>()
         self.articles = _articles.asObservable()
 
-        // すべての記事を取得
-        ArticleRepository.getArticlesAF(completion: { [weak self] response in
-            _articles.accept(response)
-        })
-       
+        // すべての記事を取得（Alamofire）
+        // ArticleRepository.getArticlesAF(completion: { [weak self] response in
+        //    _articles.accept(response)
+        // })
+
+        // すべての記事を取得（Moya）
+        ArticleRepository.getArticles()
+            .subscribe(onNext: { response in
+                _articles.accept(response)
+            })
+            .disposed(by: disposeBag)
+
         let _searchWord = PublishRelay<String>()
-        self.searchWord = AnyObserver<String>() { event in
+        self.searchWord = AnyObserver<String> { event in
             guard let text = event.element else { return }
             _searchWord.accept(text)
         }
-    
+
+        // 検索で記事を取得（Moya）
         _searchWord
             .debounce(RxTimeInterval.seconds(1), scheduler: MainScheduler.instance)
             .flatMap { searchWord in
-                ArticleRepository.searchArticles(searchWord: searchWord, completion: { [weak self] response in
-                    _articles.accept(response)
-                })
+                ArticleRepository.searchArticles(searchWord: searchWord)
             }
             .subscribe(onNext: { response in
-                print(response)
-//                _articles.accept(response)
+                _articles.accept(response)
             })
             .disposed(by: disposeBag)
+
+        // 検索で記事を取得（Alamofire）未遂
+        // _searchWord
+        //    .debounce(RxTimeInterval.seconds(1), scheduler: MainScheduler.instance)
+        //    .flatMap { searchWord in
+        //        ArticleRepository.searchArticles(searchWord: searchWord, completion: { [weak self] response in
+        //            _articles.accept(response)
+        //        })
+        //    }
+        //    .subscribe(onNext: { response in
+        //        print(response)
+        //    })
+        //    .disposed(by: disposeBag)
     }
 }
 
