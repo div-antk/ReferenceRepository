@@ -40,6 +40,11 @@ class ViewController: UIViewController, StoryboardInstantiatable {
         tableView.rowHeight = UITableView.automaticDimension // 追加
 
         getArticles()
+
+        searchBar.rx.text.orEmpty
+            .filter { $0.count >= 1 }
+            .bind(to: viewModel.inputs.searchWord)
+            .disposed(by: disposeBag)
     }
 
     private func getArticles() {
@@ -51,6 +56,7 @@ class ViewController: UIViewController, StoryboardInstantiatable {
                 self?.tableView.reloadData()
             }.disposed(by: disposeBag)
     }
+
 }
 
 extension ViewController: UISearchBarDelegate {
@@ -62,7 +68,8 @@ extension ViewController: UISearchBarDelegate {
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        10
+        print(articles?.count)
+        return articles?.count ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -15,21 +15,21 @@ enum QiitaAPI {
 
 extension QiitaAPI: TargetType {
     var baseURL: URL {
-        return URL(string: "https://qiita.com")!
+        URL(string: "https://qiita.com")!
     }
-    
+
     var path: String {
-        return "/api/v2/items"
+        "/api/v2/items"
     }
-    
+
     var method: Moya.Method {
-        return .get
+        .get
     }
-    
+
     var sampleData: Data {
-        return Data()
+        Data()
     }
-    
+
     var task: Task {
         switch self {
         case .allArticles:
@@ -38,8 +38,8 @@ extension QiitaAPI: TargetType {
             return .requestParameters(parameters: ["query": searchWord], encoding: URLEncoding.queryString)
         }
     }
-    
-    var headers: [String : String]? {
-        return nil
+
+    var headers: [String: String]? {
+        nil
     }
 }
