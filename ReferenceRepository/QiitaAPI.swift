@@ -35,7 +35,10 @@ extension QiitaAPI: TargetType {
         case .allArticles:
             return .requestPlain
         case let .search(_: searchWord):
-            return .requestParameters(parameters: ["query": searchWord], encoding: URLEncoding.queryString)
+            return .requestParameters(
+                parameters: ["query": searchWord],
+                encoding: URLEncoding.queryString
+            )
         }
     }
 
