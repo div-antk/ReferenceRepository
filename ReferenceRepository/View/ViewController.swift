@@ -68,8 +68,7 @@ extension ViewController: UISearchBarDelegate {
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(articles?.count)
-        return articles?.count ?? 0
+        articles?.count ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -108,7 +107,17 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         // WebViewのVCにURLを渡してモーダル遷移する
         if let url = URL(string: articles?[indexPath.row].url ?? "") {
             let webVc = WebViewController.instantiate(with: WebViewController.Dependency(url: url))
-            self.present(webVc, animated: true, completion: nil)
+
+            // iOS15でモーダルの仕様が変わり、ハンドルを表示してあげないとスワイプで閉じることができない
+            if #available(iOS 15.0, *) {
+                if let sheet = webVc.sheetPresentationController {
+                    sheet.prefersGrabberVisible = true
+                }
+            } else {
+                // Fallback on earlier versions
+            }
+
+            self.present(webVc, animated: true)
         }
     }
 }
