@@ -159,7 +159,7 @@ opt_in_rules:
   #- strong_iboutlet # `@IBOutlet` を `weak` で定義したいこともあるため
   - switch_case_on_newline
   - toggle_bool
-  - trailing_closure
+  #- trailing_closure # RxSwiftの `onNext` を使用するため
   - unavailable_function
   - unneeded_parentheses_in_closure_argument
   - untyped_error_in_catch
