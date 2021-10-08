@@ -60,7 +60,9 @@ fi
 ビルドされるたびにこの設定に基づいて警告が出てくれる。  
 `swiftlint rules` で設定を確認できる。
 
-## ライブラリの導入
+## ライブラリ
+
+### Cocoapodsの導入
 
 ```terminal
 pod init
@@ -71,29 +73,38 @@ Podfileを編集する（ここではVimを使っているが任意）
 ```terminal
 vi Podfile
 ```
-### RxSwift、RxCocoa
 
 ```
-  pod 'RxSwift'
+  pod 'Moya/RxSwift'
   pod 'RxCocoa'
-```
-
-```terminal
-pod install
-```
-
-### Instantiate
-
-```
+  pod 'Alamofire'
   pod 'Instantiate'
   pod 'InstantiateStandard'
+  pod 'Kingfisher'
 ```
 
 ```terminal
 pod install
 ```
+
+### RxSwift、RxCocoa
+
+割愛
+
+### Moya、Alamofire
+
+API通信ライブラリ。  
+使用例として両方入れているが片方でOK。  
+
+### Instantiate
 
 導入にあたって Main.storyboard のファイル名をViewControllerと同じ名前に修正する必要がある。  
 
 **修正方法**  
 <https://qiita.com/antk/items/0f8eed4a2cf3ba4f638c>
+
+### Kingfisher
+
+画像ライブラリ。  
+ここではプロフィール画像を表示するために使用する。  
+
