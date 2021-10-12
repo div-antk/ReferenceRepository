@@ -183,6 +183,7 @@ excluded:
   - Carthage
   - SourcePackages
   - Generated
+  - ReferenceRepository/QiitaAPI.swift # force_unwrappingのエラーを回避
 
 line_length:
   warning: 300
