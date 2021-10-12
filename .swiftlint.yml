@@ -91,7 +91,7 @@ opt_in_rules:
   - collection_alignment
   #- conditional_returns_on_newline # guard let などの1行returnを使用するため
   - contains_over_first_not_nil
-  - convenience_type
+  #- convenience_type # Dateutilなどのclassをenumで書きたくない
   #- discouraged_object_literal # オブジェクトリテラルを使いたいため
   - discouraged_optional_boolean
   #- discouraged_optional_collection # AppDelegateで引っかかるため
@@ -159,7 +159,7 @@ opt_in_rules:
   #- strong_iboutlet # `@IBOutlet` を `weak` で定義したいこともあるため
   - switch_case_on_newline
   - toggle_bool
-  - trailing_closure
+  #- trailing_closure # RxSwiftの `onNext` を使用するため
   - unavailable_function
   - unneeded_parentheses_in_closure_argument
   - untyped_error_in_catch
@@ -183,6 +183,7 @@ excluded:
   - Carthage
   - SourcePackages
   - Generated
+  - ReferenceRepository/QiitaAPI.swift # force_unwrappingのエラーを回避
 
 line_length:
   warning: 300
