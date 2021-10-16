@@ -10,11 +10,14 @@ import Foundation
 class DateUtil {
 
     static func dateFromString(string: String) -> Date {
-        let formatter = ISO8601DateFormatter()
+
+        // let formatter = ISO8601DateFormatter()
+
+        let formatter = DateFormatter()
         // TODO: バグ回避のためにタイムゾーンを修正する
         let timeZone = TimeZone(identifier: "Asia/Tokyo")
         formatter.timeZone = timeZone
-        formatter.formatOptions.insert(.withFractionalSeconds)
+        // ®formatter.formatOptions.insert(.withFractionalSeconds)
         return formatter.date(from: string) ?? Date()
     }
 
