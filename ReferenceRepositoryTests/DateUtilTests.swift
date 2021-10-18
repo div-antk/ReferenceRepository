@@ -24,19 +24,10 @@ class DateUtilTests: XCTestCase {
         super.tearDown()
     }
 
-    func testDateFromString() {
-        let result = DateUtil.dateFromString(string: "2021-01-01 00:00:00 +0000")
+    func testDateStringConverter() {
+        let result = DateUtil.dateStringConverter(string: "2021-01-01T00:00:00+09:00")
+        let date = "2021年01月01日"
 
-        var calendar = Calendar(identifier: .gregorian)
-        let date = calendar.date(from: DateComponents(year: 2_021, month: 1, day: 1))
-
-        print("結果", result)
-        print("ひづけ", date)
-
-        XCTAssertEqual(result, date, "型がDate型ではありません")
-    }
-
-    func testStringFromDate() {
-
+        XCTAssertEqual(result, date, "変換後の日付と一致しません")
     }
 }
