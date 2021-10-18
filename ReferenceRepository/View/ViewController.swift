@@ -85,13 +85,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
                 cell.nameLabel.text = article.user.name
             }
 
-            // Stringのupdated_atをDate型に変換する
-            let date = DateUtil.dateFromString(string: article.updated_at)
-            print("変換前", article.updated_at)
-            print("変換前", type(of: article.updated_at))
-
-            // Date型に変換したupdated_atをフォーマットを指定してStringに戻す
-            cell.dateLabel.text = DateUtil.stringFromDate(date: date, format: "yyyy年MM月dd日")
+            cell.dateLabel.text = DateUtil.dateStringConverter(string: article.updated_at)
 
             // プロフィール画像の設定
             let imageUrl = URL(string: article.user.profile_image_url)
