@@ -28,6 +28,7 @@
 		3BF5E59C26FF619F009EB71B /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF5E59A26FF619F009EB71B /* ItemTableViewCell.swift */; };
 		3BF5E59D26FF619F009EB71B /* ItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BF5E59B26FF619F009EB71B /* ItemTableViewCell.xib */; };
 		3BFD679A2708360900C3EC68 /* QiitaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFD67992708360900C3EC68 /* QiitaAPI.swift */; };
+		B8594A7E6214FA6A54AAF785 /* libPods-ReferenceRepositoryTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EA96C0B4520FD63B90235D7 /* libPods-ReferenceRepositoryTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2EA96C0B4520FD63B90235D7 /* libPods-ReferenceRepositoryTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReferenceRepositoryTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B2D2A4D26F206E600420A13 /* ReferenceRepository.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReferenceRepository.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B2D2A5026F206E600420A13 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3B2D2A5226F206E600420A13 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,7 +67,9 @@
 		3BF5E59B26FF619F009EB71B /* ItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemTableViewCell.xib; sourceTree = "<group>"; };
 		3BFD67992708360900C3EC68 /* QiitaAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QiitaAPI.swift; sourceTree = "<group>"; };
 		483BCA609F65CB13B70B01C2 /* Pods-ReferenceRepository.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReferenceRepository.debug.xcconfig"; path = "Target Support Files/Pods-ReferenceRepository/Pods-ReferenceRepository.debug.xcconfig"; sourceTree = "<group>"; };
+		8E2B254BEDBD1D02F9958C06 /* Pods-ReferenceRepositoryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReferenceRepositoryTests.debug.xcconfig"; path = "Target Support Files/Pods-ReferenceRepositoryTests/Pods-ReferenceRepositoryTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AD9A58AB90DA2E2B7967670B /* Pods-ReferenceRepository.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReferenceRepository.release.xcconfig"; path = "Target Support Files/Pods-ReferenceRepository/Pods-ReferenceRepository.release.xcconfig"; sourceTree = "<group>"; };
+		CD6DA3ACA8FA4284452C291A /* Pods-ReferenceRepositoryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReferenceRepositoryTests.release.xcconfig"; path = "Target Support Files/Pods-ReferenceRepositoryTests/Pods-ReferenceRepositoryTests.release.xcconfig"; sourceTree = "<group>"; };
 		F2FD301231BF38812C4482C4 /* Pods_ReferenceRepository.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReferenceRepository.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -82,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8594A7E6214FA6A54AAF785 /* libPods-ReferenceRepositoryTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,6 +98,8 @@
 			children = (
 				483BCA609F65CB13B70B01C2 /* Pods-ReferenceRepository.debug.xcconfig */,
 				AD9A58AB90DA2E2B7967670B /* Pods-ReferenceRepository.release.xcconfig */,
+				8E2B254BEDBD1D02F9958C06 /* Pods-ReferenceRepositoryTests.debug.xcconfig */,
+				CD6DA3ACA8FA4284452C291A /* Pods-ReferenceRepositoryTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -196,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				F2FD301231BF38812C4482C4 /* Pods_ReferenceRepository.framework */,
+				2EA96C0B4520FD63B90235D7 /* libPods-ReferenceRepositoryTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -227,6 +235,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3BA22F1D2719058B00133B12 /* Build configuration list for PBXNativeTarget "ReferenceRepositoryTests" */;
 			buildPhases = (
+				4AADA9D61F1096240125226A /* [CP] Check Pods Manifest.lock */,
 				3BA22F112719058B00133B12 /* Sources */,
 				3BA22F122719058B00133B12 /* Frameworks */,
 				3BA22F132719058B00133B12 /* Resources */,
@@ -340,6 +349,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if which mint >/dev/null; then\n  mint run swiftlint swiftlint autocorrect --format\n  mint run swiftlint swiftlint\nelse\n  echo \"warning: Mint not installed, download from https://github.com/yonaskolb/Mint\"\nfi\n";
+		};
+		4AADA9D61F1096240125226A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ReferenceRepositoryTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
 		};
 		592772D56C3FB14F7519E818 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -577,6 +608,7 @@
 		};
 		3BA22F1B2719058B00133B12 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8E2B254BEDBD1D02F9958C06 /* Pods-ReferenceRepositoryTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -602,6 +634,7 @@
 		};
 		3BA22F1C2719058B00133B12 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CD6DA3ACA8FA4284452C291A /* Pods-ReferenceRepositoryTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
