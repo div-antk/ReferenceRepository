@@ -11,7 +11,7 @@ import XCTest
 class DateUtilTests: XCTestCase {
 
     // 共通で使用するプロパティを宣言
-    var dateUtil: DateUtil!
+    var dateUtil: DateUtil?
 
     // 各テストメソッドごとの前処理
     override func setUp() {
@@ -25,9 +25,14 @@ class DateUtilTests: XCTestCase {
     }
 
     func testDateStringConverter() {
+        // 想定される形式の日付
         let result = DateUtil.dateStringConverter(string: "2021-01-01T00:00:00+09:00")
         let date = "2021年01月01日"
 
+        // 想定されていない形式の日付
+        let faultResult = DateUtil.dateStringConverter(string: "2021-01-01")
+
         XCTAssertEqual(result, date, "変換後の日付と一致しません")
+        XCTAssertEqual(faultResult, "", "nilガードに失敗しています")
     }
 }
