@@ -22,6 +22,7 @@
 		3B99BA2B27033956008109FE /* WebViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B99BA2A27033956008109FE /* WebViewController.storyboard */; };
 		3BA22F182719058B00133B12 /* ReferenceRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA22F172719058B00133B12 /* ReferenceRepositoryTests.swift */; };
 		3BA22F1F2719060300133B12 /* DateUtilTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA22F1E2719060300133B12 /* DateUtilTests.swift */; };
+		3BD9737C271FA1B100536AB4 /* DateUtilTestsQuickNimble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD9737B271FA1B000536AB4 /* DateUtilTestsQuickNimble.swift */; };
 		3BF5E55726F60CF5009EB71B /* UIViewController+DismissKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF5E55626F60CF5009EB71B /* UIViewController+DismissKeyboard.swift */; };
 		3BF5E56926F75618009EB71B /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF5E56826F75618009EB71B /* Article.swift */; };
 		3BF5E57A26F8892B009EB71B /* ArticleRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF5E57926F8892A009EB71B /* ArticleRepository.swift */; };
@@ -60,6 +61,7 @@
 		3BA22F152719058B00133B12 /* ReferenceRepositoryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReferenceRepositoryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BA22F172719058B00133B12 /* ReferenceRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferenceRepositoryTests.swift; sourceTree = "<group>"; };
 		3BA22F1E2719060300133B12 /* DateUtilTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtilTests.swift; sourceTree = "<group>"; };
+		3BD9737B271FA1B000536AB4 /* DateUtilTestsQuickNimble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtilTestsQuickNimble.swift; sourceTree = "<group>"; };
 		3BF5E55626F60CF5009EB71B /* UIViewController+DismissKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+DismissKeyboard.swift"; sourceTree = "<group>"; };
 		3BF5E56826F75618009EB71B /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		3BF5E57926F8892A009EB71B /* ArticleRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleRepository.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 			children = (
 				3BA22F172719058B00133B12 /* ReferenceRepositoryTests.swift */,
 				3BA22F1E2719060300133B12 /* DateUtilTests.swift */,
+				3BD9737B271FA1B000536AB4 /* DateUtilTestsQuickNimble.swift */,
 			);
 			path = ReferenceRepositoryTests;
 			sourceTree = "<group>";
@@ -417,6 +420,7 @@
 			files = (
 				3BA22F182719058B00133B12 /* ReferenceRepositoryTests.swift in Sources */,
 				3BA22F1F2719060300133B12 /* DateUtilTests.swift in Sources */,
+				3BD9737C271FA1B100536AB4 /* DateUtilTestsQuickNimble.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

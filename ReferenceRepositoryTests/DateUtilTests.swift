@@ -5,24 +5,12 @@
 //  Created by Takuya Ando on 2021/10/15.
 //
 
+// XCTestを使用したテスト
 import XCTest
+
 @testable import ReferenceRepository
 
 class DateUtilTests: XCTestCase {
-
-    // 共通で使用するプロパティを宣言
-    var dateUtil: DateUtil?
-
-    // 各テストメソッドごとの前処理
-    override func setUp() {
-        super.setUp()
-        self.dateUtil = DateUtil()
-    }
-
-    // 各テストごとの後処理
-    override func tearDown() {
-        super.tearDown()
-    }
 
     func testDateStringConverter() {
         // 想定される形式の日付
