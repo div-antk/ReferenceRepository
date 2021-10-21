@@ -14,9 +14,10 @@ import Kingfisher
 
 class ViewController: UIViewController, StoryboardInstantiatable {
 
-    @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var searchBar: UISearchBar!
+    @IBOutlet private weak var tableView: UITableView!
 
+    // swiftlint:disable implicitly_unwrapped_optional
     private var viewModel: ViewModel!
     private let disposeBag = DisposeBag()
 

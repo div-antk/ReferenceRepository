@@ -12,7 +12,7 @@ import InstantiateStandard
 
 class WebViewController: UIViewController, StoryboardInstantiatable {
 
-    @IBOutlet weak var webView: WKWebView!
+    @IBOutlet private weak var webView: WKWebView!
 
     struct Dependency {
         let url: URL
@@ -22,6 +22,7 @@ class WebViewController: UIViewController, StoryboardInstantiatable {
         url = dependency.url
     }
 
+    // swiftlint:disable implicitly_unwrapped_optional
     var url: URL!
 
     override func viewDidLoad() {
