@@ -51,10 +51,12 @@ class ViewController: UIViewController, StoryboardInstantiatable {
         viewModel = ViewModel()
 
         viewModel.outputs.articles
-            .asObservable().subscribe { [weak self] in
+            .asObservable()
+            .subscribe { [weak self] in
                 self?.articles = $0.element
                 self?.tableView.reloadData()
-            }.disposed(by: disposeBag)
+            }
+            .disposed(by: disposeBag)
     }
 
 }

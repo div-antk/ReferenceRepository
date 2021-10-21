@@ -131,7 +131,7 @@ opt_in_rules:
   - multiline_parameters_brackets
   - nimble_operator
   - no_extension_access_modifier
-  - no_grouping_extension
+  #- no_grouping_extension # グルーピングにextensionを使用したいため
   - nslocalizedstring_key
   - number_separator
   - object_literal
@@ -180,10 +180,11 @@ included:
 # 対象外のファイル・フォルダ
 excluded:
   - Pods
+  - RxSwift
+  - RxCocoa
   - Carthage
   - SourcePackages
   - Generated
-  - ReferenceRepository/QiitaAPI.swift # force_unwrappingのエラーを回避
 
 line_length:
   warning: 300
