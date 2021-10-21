@@ -19,11 +19,15 @@ class DateUtilTestsQuickNimble: QuickSpec {
         describe("dateStringConverter()") {
 
             // どういう挙動になるべきか
-            it("日付が変換される") {
+            it("年月日形式に日付が変換される") {
 
                 // Nimbleを使用してアサーションを記述
                 expect(DateUtil.dateStringConverter(string: "2021-01-01T00:00:00+09:00"))
                     .to(equal("2021年01月01日"))
+            }
+            it("形式の違う日付が返ってきた際に空文字を返す") {
+                expect(DateUtil.dateStringConverter(string: "2021-01-01"))
+                    .to(equal(""))
             }
         }
     }
