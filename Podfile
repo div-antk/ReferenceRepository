@@ -13,3 +13,9 @@ target 'ReferenceRepository' do
   pod 'InstantiateStandard'
   pod 'Kingfisher'
 end
+
+target 'ReferenceRepositoryTests' do
+  inherit! :search_paths
+  pod 'Quick'
+  pod 'Nimble'
+end

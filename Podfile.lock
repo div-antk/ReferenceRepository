@@ -9,6 +9,8 @@ PODS:
   - Moya/RxSwift (14.0.0):
     - Moya/Core
     - RxSwift (~> 5.0)
+  - Nimble (9.2.0)
+  - Quick (4.0.0)
   - RxCocoa (5.1.1):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
@@ -22,6 +24,8 @@ DEPENDENCIES:
   - InstantiateStandard
   - Kingfisher
   - Moya/RxSwift
+  - Nimble
+  - Quick
   - RxCocoa
 
 SPEC REPOS:
@@ -31,6 +35,8 @@ SPEC REPOS:
     - InstantiateStandard
     - Kingfisher
     - Moya
+    - Nimble
+    - Quick
     - RxCocoa
     - RxRelay
     - RxSwift
@@ -41,10 +47,12 @@ SPEC CHECKSUMS:
   InstantiateStandard: 18ab1417ba787113350c71a5b2251f0b4448be67
   Kingfisher: 6c3df386db71d82c0817a429d2c9421a77396529
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
+  Nimble: 4f4a345c80b503b3ea13606a4f98405974ee4d0b
+  Quick: 6473349e43b9271a8d43839d9ba1c442ed1b7ac4
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 1e2e1f9570186967f617e49128ed26ccf1bafc8e
 
-PODFILE CHECKSUM: 158111491ad29b50e17387dd46cd8830a6ef660b
+PODFILE CHECKSUM: 16615124e35d5846cffa5da60558b072f3a203b0
 
 COCOAPODS: 1.10.0

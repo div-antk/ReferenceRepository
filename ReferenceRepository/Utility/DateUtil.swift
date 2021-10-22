@@ -9,26 +9,21 @@ import Foundation
 
 class DateUtil {
 
-    static func dateFromString(string: String) -> Date {
-
-        // let formatter = ISO8601DateFormatter()
-
+    static func setupEnUsPosixFormatter() -> DateFormatter {
         let formatter = DateFormatter()
-        formatter.calendar = Calendar(identifier: .gregorian)
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSSSSZ" // 変換元のStringのDateの型に合わせる必要あり
-
-        // TODO: バグ回避のためにタイムゾーンを修正する
-        //        let timeZone = TimeZone(identifier: "Asia/Tokyo")
-        //        formatter.timeZone = timeZone
-        // ®formatter.formatOptions.insert(.withFractionalSeconds)
-        print("ストリングス", string)
-        return formatter.date(from: string)!
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        return formatter
     }
 
-    static func stringFromDate(date: Date, format: String) -> String {
-        let formatter = DateFormatter()
-        formatter.calendar = Calendar(identifier: .gregorian)
-        formatter.dateFormat = format
+    // APIから取得した日付を表示用に変換する
+    static func dateStringConverter(string: String) -> String {
+
+        let formatter = DateUtil.setupEnUsPosixFormatter()
+        // APIから取得したStringがISO8601形式のため、それに合わせる必要がある
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+        guard let date = formatter.date(from: string) else { return "" }
+        // 表示用に変換する
+        formatter.dateFormat = "yyyy年MM月dd日"
         return formatter.string(from: date)
     }
 }

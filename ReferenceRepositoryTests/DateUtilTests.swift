@@ -5,38 +5,22 @@
 //  Created by Takuya Ando on 2021/10/15.
 //
 
+// XCTestを使用したテスト
 import XCTest
+
 @testable import ReferenceRepository
 
 class DateUtilTests: XCTestCase {
 
-    // 共通で使用するプロパティを宣言
-    var dateUtil: DateUtil!
+    func testDateStringConverter() {
+        // 想定される形式の日付
+        let result = DateUtil.dateStringConverter(string: "2021-01-01T00:00:00+09:00")
+        let date = "2021年01月01日"
 
-    // 各テストメソッドごとの前処理
-    override func setUp() {
-        super.setUp()
-        self.dateUtil = DateUtil()
-    }
+        // 想定されていない形式の日付
+        let faultResult = DateUtil.dateStringConverter(string: "2021-01-01")
 
-    // 各テストごとの後処理
-    override func tearDown() {
-        super.tearDown()
-    }
-
-    func testDateFromString() {
-        let result = DateUtil.dateFromString(string: "2021-01-01 00:00:00 +0000")
-
-        var calendar = Calendar(identifier: .gregorian)
-        let date = calendar.date(from: DateComponents(year: 2_021, month: 1, day: 1))
-
-        print("結果", result)
-        print("ひづけ", date)
-
-        XCTAssertEqual(result, date, "型がDate型ではありません")
-    }
-
-    func testStringFromDate() {
-
+        XCTAssertEqual(result, date, "変換後の日付と一致しません")
+        XCTAssertEqual(faultResult, "", "nilガードに失敗しています")
     }
 }

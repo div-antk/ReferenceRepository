@@ -2,7 +2,7 @@
 
 ## 概要
 
-QiitaのAPIを使用したクライアントアプリです。
+QiitaのAPIを使用したクライアントアプリです。  
 弊社で使用しているiOSの基本的な技術、ライブラリ、及びアーキテクチャで構成されています。  
 新しくアサインされたメンバーが技術体系を学ぶ、または取り入れてみたいライブラリを実験として使う場としてのリポジトリを想定しています。  
 
@@ -12,10 +12,11 @@ QiitaのAPIを使用したクライアントアプリです。
 - 基礎的なライブラリを使用したAPI通信、及びRepositoryを絡めた実装
   - 記事一覧の取得、RxSwiftを使用したフリーワード検索機能
 - tableViewの基礎的な実装
+- 基礎的なユニットテスト
 
 #### MVVM
 
-以下の観点に基づいた設計としてKickstarterのインターフェースを参考にしています。
+以下の観点に基づいた設計としてKickstarterのインターフェースを参考にしています。  
 
 - 入力と出力は違いが識別できるか
 - 入力は外部から読み出しができないようになっているか
@@ -24,13 +25,13 @@ QiitaのAPIを使用したクライアントアプリです。
 
 ## gitignoreを記入
 
-Vimで書く場合。
+Vimで書く場合。  
 
 ```
 vi .gitignore
 ```
 
-ファイルを作成してIDEで書きたい場合。
+ファイルを作成してIDEで書きたい場合。  
 
 ```
 touch .gitignore
@@ -38,25 +39,19 @@ touch .gitignore
 
 ## SwiftLint導入
 
-導入のためにMintをインストール。
+導入のためにMintをインストール。  
 
 ```terminal
 brew install mint
 ```
 
-SwiftLintを導入。
+SwiftLintを導入。  
 
 ```terminal
 mint install realm/swiftlint
 ```
 
-バージョンも指定できる。
-
-```terminal
-mint install realm/swiftlint@0.24.2
-```
-
-`mint list` でインストールされているか確認できる。
+`mint list` でインストールされているか確認できる。  
 
 ### スクリプトを記述
 
@@ -73,37 +68,18 @@ else
 fi
 ```
 
-スクリプト以外の項目はいじらなくていい。
+スクリプト以外の項目はいじらなくていい。  
 
 ### yml（設定ファイル）の作成
 
 ルートディレクトリ（xcodeprojと同じ階層）に `.swiftlint.yml` を作成。  
-この中に設定を書く。内容は割愛。  
+この中に設定を書く。  
 ビルドされるたびにこの設定に基づいて警告が出てくれる。  
-`swiftlint rules` で設定を確認できる。
+`swiftlint rules` で設定を確認できる。  
 
 ## ライブラリ
 
-### Cocoapodsの導入
-
-```terminal
-pod init
-```
-
-Podfileを編集する（ここではVimを使っているが任意）
-
-```terminal
-vi Podfile
-```
-
-```
-  pod 'Moya/RxSwift'
-  pod 'RxCocoa'
-  pod 'Alamofire'
-  pod 'Instantiate'
-  pod 'InstantiateStandard'
-  pod 'Kingfisher'
-```
+CocoaPodsを使用してインストールする。  
 
 ```terminal
 pod install
@@ -116,7 +92,7 @@ pod install
 ### Moya、Alamofire
 
 API通信ライブラリ。  
-使用例として両方入れているが片方でOK。  
+本リポジトリでは使用例として両方入れているが、実際はどちらかでOK。  
 
 ### Instantiate
 
@@ -127,6 +103,16 @@ API通信ライブラリ。
 
 ### Kingfisher
 
-画像ライブラリ。  
-ここではプロフィール画像を表示するために使用する。  
+画像をキャッシュするライブラリ。  
+本リポジトリではプロフィール画像を表示するためにURLから画像をキャッシュしている。  
+
+```swift
+let imageUrl = URL(string: article.user.profile_image_url)
+cell.userImageView.kf.setImage(with: imageUrl)
+```
+
+### Quick/Nimble
+
+ユニットテストのためのライブラリ。  
+「期待と結果が一致するか」が確認できるのはXCTest（Xcodeに標準で入ってる）と変わらないが「より要求仕様に近い形でテストコードを表現しよう」という考え方が特徴。  
 
