@@ -175,13 +175,12 @@ opt_in_rules:
 # 対象のファイル・フォルダ
 # デフォルトからフォルダ名を変更していない場合、プロジェクト名と同名のフォルダを指定すればいい
 included:
-  - {プロジェクト名}
+  - ReferenceRepository
+  - ReferenceRepositoryTests
 
 # 対象外のファイル・フォルダ
 excluded:
   - Pods
-  - RxSwift
-  - RxCocoa
   - Carthage
   - SourcePackages
   - Generated
