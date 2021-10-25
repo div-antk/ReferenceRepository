@@ -11,6 +11,7 @@ import InstantiateStandard
 
 class ItemTableViewCell: UITableViewCell, Reusable {
 
+    // swiftlint:disable private_outlet
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!

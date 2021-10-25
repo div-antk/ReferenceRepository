@@ -15,6 +15,7 @@ enum QiitaAPI {
 
 extension QiitaAPI: TargetType {
     var baseURL: URL {
+        // swiftlint:disable force_unwrapping
         URL(string: "https://qiita.com")!
     }
 

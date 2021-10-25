@@ -131,7 +131,7 @@ opt_in_rules:
   - multiline_parameters_brackets
   - nimble_operator
   - no_extension_access_modifier
-  - no_grouping_extension
+  #- no_grouping_extension # グルーピングにextensionを使用したいため
   - nslocalizedstring_key
   - number_separator
   - object_literal
@@ -175,7 +175,8 @@ opt_in_rules:
 # 対象のファイル・フォルダ
 # デフォルトからフォルダ名を変更していない場合、プロジェクト名と同名のフォルダを指定すればいい
 included:
-  - {プロジェクト名}
+  - ReferenceRepository
+  - ReferenceRepositoryTests
 
 # 対象外のファイル・フォルダ
 excluded:
@@ -183,7 +184,6 @@ excluded:
   - Carthage
   - SourcePackages
   - Generated
-  - ReferenceRepository/QiitaAPI.swift # force_unwrappingのエラーを回避
 
 line_length:
   warning: 300

@@ -11,6 +11,7 @@ import InstantiateStandard
 
 class ItemCollectionViewCell: UICollectionViewCell, Reusable {
 
+    // swiftlint:disable private_outlet
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var tagLabel: UILabel!
 
