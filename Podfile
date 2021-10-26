@@ -12,6 +12,7 @@ target 'ReferenceRepository' do
   pod 'Instantiate'
   pod 'InstantiateStandard'
   pod 'Kingfisher'
+  pod 'SwiftLint'
 end
 
 target 'ReferenceRepositoryTests' do
