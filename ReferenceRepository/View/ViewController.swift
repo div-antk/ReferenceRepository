@@ -96,7 +96,11 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 
             cell.likesLabel.text = String(article.likes_count)
 
+            // タップした際に色を変更しない
+            cell.selectionStyle = .none
+
             return cell
+
         } else {
             return UITableViewCell()
         }

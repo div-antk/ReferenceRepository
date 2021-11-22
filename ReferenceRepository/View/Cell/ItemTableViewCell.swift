@@ -12,6 +12,7 @@ import InstantiateStandard
 class ItemTableViewCell: UITableViewCell, Reusable {
 
     // swiftlint:disable private_outlet
+    @IBOutlet weak var bgView: UIView!
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
@@ -21,6 +22,7 @@ class ItemTableViewCell: UITableViewCell, Reusable {
     override func awakeFromNib() {
         super.awakeFromNib()
 
+        bgView.layer.cornerRadius = 8
         userImageView.layer.cornerRadius = 12
         userImageView.clipsToBounds = true
     }
